@@ -1,7 +1,8 @@
+import random
 class TicTacToe:
     def __init__(self):
         self.board=[' ' for _ in range(9)]
-        self.currentPlayer='X'
+        self.currentPlayer=random.choice(['X','O'])
     def display(self):
         for i in range(3):
             print('|'.join(self.board[i*3:(i+1)*3]))
