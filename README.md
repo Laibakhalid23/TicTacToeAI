@@ -13,6 +13,7 @@ A terminal-based 2-player Tic Tac Toe game in Python.
 Run in terminal:
 ```bash
 python main.py
+```
 ## 👩‍💻 Author
 
 **Laiba Khalid**  
