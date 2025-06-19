@@ -27,12 +27,37 @@ class TicTacToe:
             self.currentPlayer='O'
         else:
             self.currentPlayer='X'
-
+    def checkWinner(self):
+        winCombinations=[
+            [0,1,2],[3,4,5],[6,7,8], #rows
+            [0,3,6],[1,4,7],[2,5,8], #columns
+            [0,4,8],[2,4,6]          #diagonals
+        ]
+        for combo in winCombinations:
+            a,b,c=combo
+            if self.board[a]==self.board[b]==self.board[c] and self.board[a]!=' ':
+                return True
+        return False
+    def isDraw(self):
+        for cell in self.board:
+            if cell == ' ':
+                return False
+        return True
   
 if __name__ == "__main__":  
     game= TicTacToe()
-while True:
-    game.display()
-    game.makeMove()
-    game.switchPlayer()         
+    while True:
+        game.display()
+        game.makeMove()
 
+        if game.checkWinner():
+            game.display()
+            print(f"Player {game.currentPlayer} wins!")
+            break
+        elif game.isDraw():
+            game.display()
+            print(f"Its a draw!")
+            break
+        game.switchPlayer()         
+
+    
