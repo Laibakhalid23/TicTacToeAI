@@ -43,13 +43,38 @@ class TicTacToe:
             if cell == ' ':
                 return False
         return True
-  
+    def aiMove(self):
+        print("Computer's turn:")
+        availableMoves=[]
+        for i in range(9):
+            if self.board[i]==' ':
+                availableMoves.append(i)
+        move=random.choice(availableMoves)
+        self.board[move]=self.currentPlayer
+
 if __name__ == "__main__":  
+    vsComputer=input("Do you want to play against Computer? (y/n) " ).lower()=='y'
+    if vsComputer:
+        humanSymbol=input("Choose your symbol (X/O) " ).upper()
+        while humanSymbol not in ['X','O']:
+            humanSymbol=input("Invalid choice. Please choose X or O: " ).upper()
+        if humanSymbol=='X':
+            aiSymbol='O'
+        else:
+            aiSymbol='X'
+    else:
+        humanSymbol=None  #not needed in player vs player mode
+        aiSymbol=None
+
     game= TicTacToe()
     while True:
         game.display()
-        game.makeMove()
 
+        if vsComputer and game.currentPlayer==aiSymbol:
+            game.aiMove()
+        else:
+             game.makeMove()
+             
         if game.checkWinner():
             game.display()
             print(f"Player {game.currentPlayer} wins!")
