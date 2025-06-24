@@ -32,6 +32,10 @@ Run this command in your terminal:
 ```
 python main.py
 ```
+## 🖼️ Demo
+
+![Tic Tac Toe Demo](demo.gif)
+
 ## 👩‍💻 Author
 
 **Laiba Khalid**  
