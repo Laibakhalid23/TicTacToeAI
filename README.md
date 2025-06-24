@@ -24,6 +24,7 @@ TicTacToeAI/
 ├── game.py # Core game logic (board, player moves, win/draw check)
 ├── randomAI.py # Random AI player logic
 ├── smartAI.py # Smart AI logic using Minimax algorithm
+├── demo.gif # A demo gif of player vs smart AI
 └── main.py # Game launcher to choose mode 
 ```
 
