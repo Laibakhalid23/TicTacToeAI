@@ -62,5 +62,17 @@ def showResult(message):
 
 resultLabel=tk.Label(window,text="",font=("Arial",16))
 resultLabel.grid(row=3,column=0,columnspan=3)
+
+def resetGame():
+    global currentPlayer
+    currentPlayer = 'X'
+    resultLabel.config(text="")
+    for rows in buttons:
+        for btn in rows:
+            btn.config(text="",state="normal")
+
+resetButton=tk.Button(window, text="Play Again",font=("Arial",12),command=resetGame)
+resetButton.grid(row=4,column=0,columnspan=3,pady=10)
+
 window.mainloop()
 
