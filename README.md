@@ -1,19 +1,20 @@
-# TicTacToe (AI Edition)
+# TicTacToe (AI Edition + GUI)
 
-A terminal-based 2-player Tic Tac Toe game in Python with modular AI opponents. Choose to play against a human, a random-move AI, or a smart AI powered by the Minimax algorithm.
+A terminal-based 2-player Tic Tac Toe game in Python with modular AI opponents. Choose to play against a human, a random-move AI, or a smart AI powered by the Minimax algorithm — now also playable with a friendly GUI using Tkinter!
 
 ---
 
 ## 🎮 Features
 
-- ✅ Human vs Human mode  
+- ✅ Human vs Human mode (Terminal & GUI)
 - 🤖 Human vs AI (Random or Smart AI using Minimax)   
-- 🧩 Player symbol selection (X or O)  
+- 🧩 Player symbol selection (X or O) in terminal mode 
 - ✅ Win detection for rows, columns, and diagonals  
 - ✅ Draw detection when the board is full  
 - ✅ Input validation for valid moves  
 - 🧠 Smart AI calculates optimal move using Minimax 
-- 🖱️ Graphical User Interface using Tkinter   
+- 🖱️ Graphical User Interface using Tkinter  
+- 🔄 "Play Again" button in GUI to restart easily 
 - 🎯 Clean modular code split across files  
 
 ---
@@ -27,7 +28,8 @@ TicTacToeAI/
 ├── smartAI.py # Smart AI logic using Minimax algorithm
 ├── gui.py # GUI version using tkinter
 ├── demo.gif # A demo gif of player vs smart AI
-└── main.py # Game launcher to choose mode 
+└── README.md       # Project documentation
+└── main.py # Terminal-based game launcher
 ```
 
 ## 🔧 How to run
