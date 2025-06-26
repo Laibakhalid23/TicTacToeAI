@@ -1,12 +1,22 @@
 import tkinter as tk
+import tkinter.simpledialog as simpledialog
+import random
+
+
 # Create the main game window
 window=tk.Tk()
 window.title("Tic Tac Toe")
 window.geometry("300x300")
 window.configure(bg="#d4e6f1")  # Soft blue background
+window.withdraw()  # Hide window temporarily
 
+# Ask for game mode
+gameMode = simpledialog.askstring("Game Mode", "Choose mode:\n1. Human vs Human\n2. Human vs Random AI\n3. Human vs Smart AI")
 
+if gameMode not in ["1", "2", "3"]:
+    gameMode = "1"  # Default to Human vs Human if invalid input
 
+window.deiconify()  # Show main window after dialog
 currentPlayer='X'
 usedCells = [[False for _ in range(3)] for _ in range(3)]
 # Function to handle button click
@@ -26,12 +36,27 @@ def onClick(row,col):
             showResult("It's a draw!")
         else:
             switchPlayer()
+            if gameMode == "2" and currentPlayer=="O":
+                window.after(500,aiMove) # Delay for better UX
+
 def switchPlayer():
     global currentPlayer
     if currentPlayer=='X':
         currentPlayer='O'
     else:
         currentPlayer='X'
+
+def aiMove():
+    emptyCells=[]
+    for r in range(3):
+        for c in range(3):
+            if not usedCells[r][c]:
+                emptyCells.append((r,c))
+    if not emptyCells:
+        return
+    row,col=random.choice(emptyCells)
+    onClick(row,col)
+
 # Create a 3x3 grid of buttons
 buttons=[]
 for row in range(3):
@@ -41,6 +66,7 @@ for row in range(3):
         btn.grid(row=row,column=col)
         rowButtons.append(btn)
     buttons.append(rowButtons)
+
 def checkWinner():
     for i in range(3):
         #check rows
@@ -55,6 +81,7 @@ def checkWinner():
     if buttons[0][2]["text"]==buttons[1][1]["text"]==buttons[2][0]["text"] and buttons[0][2]["text"]!="":
         return buttons[0][2]["text"], [(0, 2), (1, 1), (2, 0)]
     return None,[]
+
 def isDraw():
     for rows in buttons:
         for btn in rows:
@@ -67,6 +94,7 @@ def showResult(message):
     for r in range(3):
         for c in range(3):
             usedCells[r][c] = True 
+            buttons[r][c]["state"] = "disabled"
 resultLabel=tk.Label(window,text="",font=("Arial",16),bg="#d4e6f1")
 resultLabel.grid(row=3,column=0,columnspan=3)
 
@@ -77,13 +105,15 @@ def resetGame():
     resultLabel.config(text="")
     for r in range(3):
         for c in range(3):
-            buttons[r][c].config(text="", fg="black")
+            buttons[r][c].config(text="", fg="black", state="normal", bg="SystemButtonFace")
             usedCells[r][c] = False
 resetButton=tk.Button(window, text="Play Again",font=("Arial",12),command=resetGame,bg="#aed6f1")
 resetButton.grid(row=4,column=0,columnspan=3,pady=10)
+
 def highlightWinningLine(cells):
     for row, col in cells:
         buttons[row][col].config(bg="#82E0AA")  # Light green highlight
+
 
 window.mainloop()
 
