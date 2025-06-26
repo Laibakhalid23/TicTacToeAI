@@ -21,7 +21,12 @@ A terminal-based 2-player Tic Tac Toe game in Python with modular AI opponents. 
 - 🎨 Colored symbols (X = Blue, O = Red)
 - 🌈 Highlighted winning line after game ends  
 - 🔁 "Play Again" button to restart game  
-- 🧠 Easy to expand for AI-based GUI play (coming soon)
+- 🧠 Game mode selection on startup:
+  - 1️⃣ Human vs Human  
+  - 2️⃣ Human vs Random AI  
+  - 3️⃣ Human vs Smart AI *(Coming Soon)*  
+- 🤖 Random AI support added  
+- 📦 GUI ready to integrate Smart AI logic
 ---
 
 ## 📁 Project Structure
