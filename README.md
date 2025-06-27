@@ -24,9 +24,9 @@ A terminal-based 2-player Tic Tac Toe game in Python with modular AI opponents. 
 - 🧠 Game mode selection on startup:
   - 1️⃣ Human vs Human  
   - 2️⃣ Human vs Random AI  
-  - 3️⃣ Human vs Smart AI *(Coming Soon)*  
-- 🤖 Random AI support added  
-- 📦 GUI ready to integrate Smart AI logic
+  - 3️⃣ Human vs Smart AI 
+- 🤖 Random AI & Smart AI fully integrated and working  
+- 🧠 Smart AI reuses core Minimax logic from `smartAI.py`  
 ---
 
 ## 📁 Project Structure
