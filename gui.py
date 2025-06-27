@@ -1,6 +1,7 @@
 import tkinter as tk
 import tkinter.simpledialog as simpledialog
 import random
+from smartAI import getBestMove
 
 
 # Create the main game window
@@ -36,7 +37,7 @@ def onClick(row,col):
             showResult("It's a draw!")
         else:
             switchPlayer()
-            if gameMode == "2" and currentPlayer=="O":
+            if gameMode in ["2","3"] and currentPlayer=="O":
                 window.after(500,aiMove) # Delay for better UX
 
 def switchPlayer():
@@ -47,14 +48,31 @@ def switchPlayer():
         currentPlayer='X'
 
 def aiMove():
-    emptyCells=[]
-    for r in range(3):
-        for c in range(3):
-            if not usedCells[r][c]:
-                emptyCells.append((r,c))
-    if not emptyCells:
-        return
-    row,col=random.choice(emptyCells)
+    if gameMode=="2":
+        emptyCells=[]
+        for r in range(3):
+            for c in range(3):
+                if not usedCells[r][c]:
+                    emptyCells.append((r,c))
+        if not emptyCells:
+            return
+        row,col=random.choice(emptyCells)
+    elif gameMode=="3":
+         # Convert GUI 2D board to flat list of 9 cells
+         flatBoard=[]
+         for r in range(3):
+             for c in range(3):
+                 val=buttons[r][c]["text"]
+                 flatBoard.append(val if val!="" else " ")
+
+         #calling smartAI function
+         move=getBestMove(flatBoard,"O","X")
+         if move is None:
+             return
+         # Convert 1D move index back to 2D row, col
+         row = move // 3
+         col = move % 3
+
     onClick(row,col)
 
 # Create a 3x3 grid of buttons
