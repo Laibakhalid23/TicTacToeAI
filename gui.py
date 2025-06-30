@@ -7,7 +7,7 @@ from smartAI import getBestMove
 # Create the main game window
 window=tk.Tk()
 window.title("Tic Tac Toe")
-window.geometry("300x300")
+window.state("zoomed")  # Make window full screen
 window.configure(bg="#d4e6f1")  # Soft blue background
 window.withdraw()  # Hide window temporarily
 
