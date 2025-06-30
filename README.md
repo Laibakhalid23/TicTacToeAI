@@ -38,8 +38,11 @@ TicTacToeAI/
 ├── smartAI.py # Smart AI logic using Minimax algorithm
 ├── gui.py # GUI version using tkinter
 ├── demo.gif # A demo gif of player vs smart AI
-└── README.md       # Project documentation
-└── main.py # Terminal-based game launcher
+├── gui_demo.gif # A demo gif of GUI gameplay
+├── README.md # Project documentation
+├── main.py # Terminal-based game launcher
+└── tests/
+└── test_game.py # Unit tests for game logic
 ```
 
 ## 🔧 How to run
@@ -51,6 +54,19 @@ python main.py
 ```
 python gui.py
 ```
+## ✅ Running Tests
+
+This project includes unit tests for key game logic using Python's unittest module.
+
+To run the tests:
+```
+python -m unittest discover tests
+```
+Or run a specific test file:
+```
+python tests/test_game.py
+```
+
 ## 🖼️ Demo
 
 ![Tic Tac Toe Demo](demo.gif)
