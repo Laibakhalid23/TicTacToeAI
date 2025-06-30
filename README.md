@@ -55,6 +55,10 @@ python gui.py
 
 ![Tic Tac Toe Demo](demo.gif)
 
+## 🖼️ GUI Demo
+![Tic Tac Toe GUI Demo](gui_demo.gif)
+
+
 ## 👩‍💻 Author
 
 **Laiba Khalid**  
